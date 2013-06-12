@@ -96,6 +96,10 @@ Yes, this private key is used for the Vagrant example project. It's supposed
 to be there so you can spin up a box with a single command. Don't put your own
 private keys there.
 
+## Want to help?
+
+That would be great! Check out the [TODO.org] or the [Issues] on things to do.
+
 ## License
 
 BSD Licensed. Use it however you want.
@@ -114,3 +118,5 @@ BSD Licensed. Use it however you want.
 [Fabtools]: https://github.com/ronnix/fabtools
 [requirements.txt]: https://github.com/wunki/django-salted/blob/master/requirements.txt
 [Vagrantfile]: https://github.com/wunki/django-salted/blob/master/Vagrantfile
+[TODO.org]: https://github.com/wunki/django-salted/blob/master/TODO.org
+[Issues]: https://github.com/wunki/django-salted/issues

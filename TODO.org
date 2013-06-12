@@ -1,5 +1,10 @@
 * Django-salted
 ** TODO Admin templates are not loaded with the `app_loader`
+
+   Somehow, now templates from libraries are loaded. The list of template
+   directories of apps is completely empty. I already looked at the
+   permissions, but they seem to be fine.
+   
 ** TODO Replace uWSGI sleep with hook.
 
    Currently we have to sleep for 15 seconds before starting uWSGI so that
