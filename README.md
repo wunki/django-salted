@@ -1,5 +1,7 @@
 # Django Salted
 
+** One-command Django and PostgreSQL development environment on Vagrant **
+
 This is a complete [SaltStack] configuration for a Django centric stack. It
 enables you setup a solid Django development environment with a single
 command. Some of the great things which are included:
