@@ -2,7 +2,7 @@
 
 **One-command Django and PostgreSQL development environment on Vagrant.**
 
-![Shake it, shake it, shake it like a salt shaker...](https://github.com/wunki/django-salted/tree/master/files/salt-shaker.png "Shake it!")
+![Shake it, shake it, shake it like a salt shaker...](https://raw.github.com/wunki/django-salted/master/files/salt-shaker.png "Shake it!")
 
 This is a complete [SaltStack] configuration for a Django centric stack. It
 enables you setup a solid Django development environment with a single
