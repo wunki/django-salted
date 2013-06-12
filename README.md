@@ -70,6 +70,11 @@ following:
     # On the box...
     sudo salt-call state.highstate
 
+### Which Operating Systems are supported?
+
+Currently I have only tested it on Ubuntu 12.04 box. In the future there will
+be support for Debian and FreeBSD.
+
 ### I'm getting "502 Bad Gateway" from Nginx
 
 Ajj! This means uWSGI is down. It takes 15 seconds for uWSGI to spin up from a
