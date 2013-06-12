@@ -4,6 +4,7 @@ include:
 example-postgres-user:
   postgres_user.present:
     - name: {{ pillar['example']['postgres_user'] }}
+    - createdb: {{ pillar['example']['postgres_createdb'] }}
     - password: {{ pillar['example']['postgres_password'] }}
     - runas: postgres
     - require:
@@ -19,4 +20,4 @@ example-postgres-db:
     - owner: {{ pillar['example']['postgres_user'] }}
     - runas: postgres
     - require:
-      - postgres_user: example-postgres-user
+        - postgres_user: example-postgres-user

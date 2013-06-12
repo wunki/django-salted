@@ -10,6 +10,7 @@ example:
   postgres_db: example_db
   postgres_user: example_user
   postgres_password: example_password
+  postgres_createdb: True
   uwsgi_user: vagrant
   uwsgi_group: vagrant
   uwsgi_processes: 3
