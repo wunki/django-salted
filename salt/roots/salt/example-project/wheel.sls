@@ -1,45 +1,38 @@
-/var/www/wheel:
+{{ pillar['wheel']['path'] }}:
   file.directory:
-    - user: www-data
-    - group: www-data
-    - require:
-      - file: /var/www
-      - user: www-data
+    - user: {{ pillar['django']['user'] }}
 
 # Manage the tar file containing all the requirements
-{{ pillar['example']['wheel_root'] }}/{{ pillar['example']['wheel_zip'] }}:
+{{ pillar['wheel']['path'] }}/{{ pillar['wheel']['zip'] }}:
   file.managed:
-    - source: {{ pillar['example']['wheel_source'] }}
-    - source_hash: md5={{ pillar['example']['wheel_md5'] }}
-    - user: www-data
-    - group: www-data
+    - source: {{ pillar['wheel']['source'] }}
+    - source_hash: md5={{ pillar['wheel']['md5'] }}
+    - user: {{ pillar['django']['user'] }}
     - require:
-      - file: {{ pillar['example']['wheel_root'] }}
-      - user: www-data
+      - file: {{ pillar['wheel']['path'] }}
 
 # Extract the archive when it changes
 extract-wheel:
   cmd.wait:
-    - user: www-data
-    - cwd: {{ pillar['example']['wheel_root'] }}
-    - name: tar -zxf {{ pillar['example']['wheel_root'] }}/{{ pillar['example']['wheel_zip'] }}
+    - user: {{ pillar['django']['user'] }}
+    - cwd: {{ pillar['wheel']['path'] }}
+    - name: tar -zxf {{ pillar['wheel']['path'] }}/{{ pillar['wheel']['zip'] }}
     - watch:
-      - file: {{ pillar['example']['wheel_root'] }}/{{ pillar['example']['wheel_zip'] }}
+      - file: {{ pillar['wheel']['path'] }}/{{ pillar['wheel']['zip'] }}
     - require:
-      - file: {{ pillar['example']['wheel_root'] }}
-
+      - file: {{ pillar['wheel']['path'] }}
 
 # Install all the requirements
 example-wheel:
   cmd.wait:
-    - name: {{ pillar['example']['virtualenv'] }}/bin/pip install --use-wheel --no-index --find-links={{ pillar['example']['wheel_root'] }}/example -r {{ pillar['example']['path'] }}/requirements.txt
+    - name: {{ pillar['django']['virtualenv'] }}/bin/pip install --use-wheel --no-index --find-links={{ pillar['wheel']['path'] }}/example -r {{ pillar['django']['path'] }}/requirements.txt
     - require:
       - cmd: pip-wheel
-      - virtualenv: {{ pillar['example']['virtualenv'] }}
+      - virtualenv: {{ pillar['django']['virtualenv'] }}
     - watch:
-      - file: {{ pillar['example']['wheel_root'] }}/{{ pillar['example']['wheel_zip'] }}
+      - file: {{ pillar['wheel']['path'] }}/{{ pillar['wheel']['zip'] }}
     - require:
         - cmd: pip-dev
         - cmd: pip-distribute
         - cmd: extract-wheel
-        - virtualenv: {{ pillar['example']['virtualenv'] }}
+        - virtualenv: {{ pillar['django']['virtualenv'] }}

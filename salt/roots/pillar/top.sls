@@ -1,3 +1,7 @@
 base:
   'vagrant.django-salted.org':
-    - example
+    - vagrant-django
+    - vagrant-wheel
+    - vagrant-wheel
+    - vagrant-uwsgi
+    - vagrant-postgresql

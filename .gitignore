@@ -1,3 +1,4 @@
 .vagrant/
-example-requirements.tar.gz
+wheel/
+env/
 /.ropeproject/config.py
