@@ -9,12 +9,12 @@ LOCAL_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 # Server paths
 PROJECT_NAME = "example"
-PROJECT_PATH = "/var/www/example_project"
+PROJECT_PATH = "/vagrant/example_project"
 
-MANAGE_BIN = "/var/www/example_project/manage.py"
-VENV_PATH = "/var/www/venv/example/"
-WHEEL_PATH = "/var/www/wheel"
-WHEEL_NAME = "example-requirements.tar.gz"
+MANAGE_BIN = "/vagrant/example_project/manage.py"
+VENV_PATH = "/vagrant/example_project/"
+WHEEL_PATH = "/vagrant/wheel"
+WHEEL_NAME = "wheel-requirements.tar.gz"
 
 def _md5_for_file(filename, block_size=2**20):
     filename = os.path.join(LOCAL_ROOT, filename)
