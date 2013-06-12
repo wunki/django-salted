@@ -4,13 +4,13 @@ This is a complete [SaltStack] configuration for a Django centric stack. It
 enables you setup a solid Django development environment with a single
 command. Some of the great things which are included:
 
-- *Local development*, but the code is run within Ubuntu with the help of a
+- **Local development**, but the code is run within Ubuntu with the help of a
   share.
-- Server running on *[uWSGI]* and *[Nginx]*. uWSGI *reloads* your python code
+- Server running on **[uWSGI]** and **[Nginx]**. uWSGI **reloads** your python code
   automagically.
-- Django requirements are installed with *[Wheel]*. Faster installation because
+- Django requirements are installed with **[Wheel]**. Faster installation because
   no more need for compilation per box. Also removes the dependency on PyPi.
-- Some helpfull *[Fabric]* functions.
+- Some helpfull **[Fabric]** functions.
 
 The repository is accomponied with a blog post we put on [Gibbon]. Go read
 [Salting your Django Stack] if you want to know how this came to be.
