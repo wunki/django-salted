@@ -1,59 +1,45 @@
 /var/www/wheel:
   file.directory:
-    - user: {{ pillar['www']['user'] }}
-    - group: {{ pillar['www']['group'] }}
+    - user: www-data
+    - group: www-data
     - require:
-      - file: {{ pillar['www']['path'] }}
-      - user: {{ pillar['www']['group'] }}
+      - file: /var/www
+      - user: www-data
 
 # Manage the tar file containing all the requirements
-{{ pillar['gibbon-web']['wheel_path'] }}/gibbon-web-wheel.tar.gz:
+{{ pillar['example']['wheel_path'] }}/{{ pillar['example']['wheel_zip'] }}:
   file.managed:
-    - source: {{ pillar['gibbon-web']['wheel_source'] }}
-    - source_hash: md5={{ pillar['gibbon-web']['wheel_md5'] }}
-    - user: {{ pillar['www']['user'] }}
-    - group: {{ pillar['www']['group'] }}
+    - source: {{ pillar['example']['wheel_source'] }}
+    - source_hash: md5={{ pillar['example']['wheel_md5'] }}
+    - user: www-data
+    - group: www-data
     - require:
-      - file: {{ pillar['gibbon-web']['wheel_path'] }}
-      - user: {{ pillar['www']['user'] }}
+      - file: {{ pillar['example']['wheel_path'] }}
+      - user: www-data
 
 # Extract the archive when it changes
 extract-wheel:
   cmd.wait:
-    - user: {{ pillar['www']['user'] }}
-    - cwd: {{ pillar['gibbon-web']['wheel_path'] }}
-    - name: tar -zxf {{ pillar['gibbon-web']['wheel_path'] }}/{{ pillar['gibbon-web']['wheel_tar'] }}
+    - user: www-data
+    - cwd: {{ pillar['example']['wheel_path'] }}
+    - name: tar -zxf {{ pillar['example']['wheel_path'] }}/{{ pillar['example']['wheel_zip'] }}
     - watch:
-      - file: {{ pillar['gibbon-web']['wheel_path'] }}/{{ pillar['gibbon-web']['wheel_tar'] }}
+      - file: {{ pillar['example']['wheel_path'] }}/{{ pillar['example']['wheel_zip'] }}
     - require:
-      - file: {{ pillar['gibbon-web']['wheel_path'] }}
+      - file: {{ pillar['example']['wheel_path'] }}
 
-/var/www/wheel:
-  file.directory:
-    - user: {{ pillar['www']['user'] }}
-    - group: {{ pillar['www']['group'] }}
-    - require:
-      - file: {{ pillar['www']['path'] }}
-      - user: {{ pillar['www']['group'] }}
 
-# Manage the tar file containing all the requirements
-{{ pillar['gibbon-web']['wheel_path'] }}/gibbon-web-wheel.tar.gz:
-  file.managed:
-    - source: {{ pillar['gibbon-web']['wheel_source'] }}
-    - source_hash: md5={{ pillar['gibbon-web']['wheel_md5'] }}
-    - user: {{ pillar['www']['user'] }}
-    - group: {{ pillar['www']['group'] }}
-    - require:
-      - file: {{ pillar['gibbon-web']['wheel_path'] }}
-      - user: {{ pillar['www']['user'] }}
-
-# Extract the archive when it changes
-extract-wheel:
+# Install all the requirements
+example-wheel:
   cmd.wait:
-    - user: {{ pillar['www']['user'] }}
-    - cwd: {{ pillar['gibbon-web']['wheel_path'] }}
-    - name: tar -zxf {{ pillar['gibbon-web']['wheel_path'] }}/{{ pillar['gibbon-web']['wheel_tar'] }}
-    - watch:
-      - file: {{ pillar['gibbon-web']['wheel_path'] }}/{{ pillar['gibbon-web']['wheel_tar'] }}
+    - name: {{ pillar['example']['virtualenv'] }}/bin/pip install --use-wheel --no-index --find-links={{ pillar['example']['wheel_path'] }}/gibbon-web -r {{ pillar['example']['path'] }}/requirements.txt
     - require:
-      - file: {{ pillar['gibbon-web']['wheel_path'] }}
+      - cmd: pip-wheel
+      - virtualenv: {{ pillar['example']['virtualenv'] }}
+    - watch:
+      - file: {{ pillar['example']['wheel_path'] }}/{{ pillar['example']['wheel_zip'] }}
+    - require:
+        - cmd: pip-dev
+        - cmd: pip-distribute
+        - cmd: extract-wheel
+        - virtualenv: {{ pillar['example']['virtualenv'] }}
