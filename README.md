@@ -16,7 +16,21 @@ command. Some of the great things which are included:
   designer how to get the project running.
 - Django requirements are installed with *[Wheel]*. Faster installation because
   no more need for compilation per box. Also removes the dependency on PyPi.
-- Some helpfull *[Fabric]* functions.
+  - Some helpfull *[Fabric]* functions.
+
+**Table of Contents**
+
+- [Django Salted](#django-salted)
+	- [Requirements](#requirements)
+	- [Getting started (quick)](#getting-started-quick)
+	- [Modify for your own project](#modify-for-your-own-project)
+	- [FAQ](#faq)
+		- [How do I get the get the latest state/version?](#how-do-i-get-the-get-the-latest-stateversion)
+		- [Which Operating Systems are supported?](#which-operating-systems-are-supported)
+		- [I'm getting "502 Bad Gateway" from Nginx](#i'm-getting-502-bad-gateway-from-nginx)
+		- [OMG, you also put the private key on Github?](#omg-you-also-put-the-private-key-on-github)
+	- [Want to help?](#want-to-help)
+	- [License](#license)
 
 **The repository is accomponied with a blog post we put on [Gibbon]. Go read
 [Salting your Django Stack] if you want to know how this came to be.**
