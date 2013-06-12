@@ -11,7 +11,7 @@ LOCAL_ROOT = os.path.dirname(os.path.realpath(__file__))
 PROJECT_NAME = "example"
 PROJECT_PATH = "/var/www/example_project"
 
-MANAGE_BIN = "/var/www/example/manage.py"
+MANAGE_BIN = "/var/www/example_project/manage.py"
 VENV_PATH = "/var/www/venv/example/"
 WHEEL_PATH = "/var/www/wheel"
 WHEEL_NAME = "example-requirements.tar.gz"
@@ -38,7 +38,7 @@ def manage_py(command):
 @task
 def syncdb():
     """ Django syncdb command."""
-    manage_py("syncdb")
+    manage_py("syncdb --noinput")
 
 @task
 def migrate():
@@ -51,10 +51,10 @@ def wheel():
     # Get all the requirements
     print colors.green("Downloading and compiling requirements. This could take several minutes...")
     sudo('{pip} wheel --wheel-dir={wheel} -r {example}/requirements.txt'.format(pip=VENV_PATH + "/bin/pip",
-                                                                                wheel=WHEEL_PATH + PROJECT_NAME,
+                                                                                wheel=WHEEL_PATH + '/' + PROJECT_NAME,
                                                                                 example=PROJECT_PATH),
          user="www-data",
-         quiet=True)
+         quiet=False)
 
     # Zip up
     print colors.green("Zipping all the requirements into one file...")
@@ -62,9 +62,9 @@ def wheel():
         sudo('tar czf {name} {project}/'.format(name=WHEEL_NAME,
                                                 project=PROJECT_NAME),
              user="www-data",
-             quiet=True)
+             quiet=False)
         sudo('mv {name} /vagrant/'.format(name=WHEEL_NAME),
-             quiet=True)
+             quiet=False)
 
     # Create a MD5
     md5 = _md5_for_file(WHEEL_NAME)

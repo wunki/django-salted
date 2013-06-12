@@ -8,12 +8,14 @@ command. Some of the great things which are included:
   share.
 - Server running on *[uWSGI]* and *[Nginx]*. uWSGI *reloads* your python code
   automagically.
+- *[PostgreSQL]* is installed and setup for you. No more explaining to your
+  designer how to get the project running.
 - Django requirements are installed with *[Wheel]*. Faster installation because
   no more need for compilation per box. Also removes the dependency on PyPi.
 - Some helpfull *[Fabric]* functions.
 
-The repository is accomponied with a blog post we put on [Gibbon]. Go read
-[Salting your Django Stack] if you want to know how this came to be.
+**The repository is accomponied with a blog post we put on [Gibbon]. Go read
+[Salting your Django Stack] if you want to know how this came to be.**
 
 ## Requirements
 
@@ -23,8 +25,11 @@ Django salted requires the following software to be installed on your machine:
 - [Vagrant]
 - [Salty Vagrant]
 
-All of the above are open-source and free to use.
+You also need [Fabric] and [Fabtools] if you want to run the Fabric
+commands. You can find these requirements in the [requirements.txt] file in
+the root directory.
 
+All of the above are open-source and free to use.
 
 ## Getting started (quick)
 
@@ -35,11 +40,13 @@ have the requirements installed, it's just a single command:
     vagrant up
 
 After running this command, you should see the Django example website on:
-[http://127.0.0.1:8080/](http://127.0.0.1:8080)
+[http://127.0.0.1:8080/](http://127.0.0.1:8080). However, your database tables
+still need to be created. There is a fabric command to help you with that:
 
-I would suggest to run with the defaults to get a feeling how this all
-works. After getting familiar with it, using Django Salted on your own project
-is simple done with changing a few settings.
+    fab vagrant syncdb
+
+After getting familiar with it, using Django Salted on your own project is
+simple done with changing a few settings.
 
 The default configuration runs with the following settings:
 
@@ -65,6 +72,7 @@ BSD Licensed. Use it however you want.
 
 [SaltStack]: http://saltstack.com/community.html
 [Gibbon]: http://blog.gibbon.co
+[PostgreSQL]: http://www.postgresql.org/
 [Salting your Django Stack]: http://blog.gibbon.co
 [Virtualbox]: https://www.virtualbox.org/
 [Vagrant]: http://www.vagrantup.com/
@@ -73,3 +81,5 @@ BSD Licensed. Use it however you want.
 [Nginx]: http://nginx.org/
 [Wheel]: http://wheel.readthedocs.org/
 [Fabric]: http://fabfile.org/
+[Fabtools]: https://github.com/ronnix/fabtools
+[requirements.txt]: https://github.com/wunki/django-salted/blob/master/requirements.txt
