@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
     web.vm.box = "precise64"
     web.vm.box_url = "http://files.vagrantup.com/precise64.box"
     web.vm.hostname = "vagrant.django-salted.org"
-    web.vm.network :forwarded_port, guest: 80, host: 8000, auto_correct: true
+    web.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
 
     # Masterless server
     web.vm.synced_folder "salt/roots/", "/srv/"
