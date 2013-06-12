@@ -1,4 +1,5 @@
 * Django-salted
+** TODO Admin templates are not loaded with the `app_loader`
 ** TODO Replace uWSGI sleep with hook.
 
    Currently we have to sleep for 15 seconds before starting uWSGI so that
