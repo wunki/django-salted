@@ -3,6 +3,9 @@
 This is a complete [SaltStack] configuration for a Django centric stack. It
 enables you setup a solid Django development environment within minutes.
 
+The repository is accomponied with a blog post we put on [Gibbon]. Go read
+[Salting your Django Stack] if you want to know how this came to be.
+
 ## Getting started (quick)
 
 If you want to quickly try out what this is all about. Your installation will
@@ -18,3 +21,5 @@ The default configuration runs with the following settings:
 - Domain is: vagrant.django-salted.org
 
 [SaltStack]: http://saltstack.com/community.html
+[Gibbon]: http://blog.gibbon.co
+[Salting your Django Stack]: http://blog.gibbon.co
