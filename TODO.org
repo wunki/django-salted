@@ -1,0 +1,7 @@
+* Django-salted
+** TODO Replace uWSGI sleep with hook.
+
+   Currently we have to sleep for 15 seconds before starting uWSGI so that
+   the vagrant share is up. This is a dirty way of doing it. A pull request
+   is already on Vagrant which supplies a hook after putting the share online.
+   

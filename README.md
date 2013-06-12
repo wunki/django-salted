@@ -61,13 +61,25 @@ TODO: Write how to modify this repository for your own project.
 ### How do I get the get the latest state/version?
 
 The fastest way is to run `vagrant provision`. The downfall is that you don't
-see what's happening. So, you can either edit the [Vagrantfile] and change
-`salt.verbose` to `true`. Or SSH to the box (my favourite) by doing the
+see what's happening in colors. Or SSH to the box (my favourite) by doing the
 following:
 
     vagrant ssh
     # On the box...
     sudo salt-call state.highstate
+
+### I'm getting "502 Bad Gateway" from Nginx
+
+Ajj! This means uWSGI is down. It takes 15 seconds for uWSGI to spin up from a
+cold boot (because we have to wait on the Vagrant share). However, if after 15
+seconds it's still not working, check out what went wrong by looking at the logs:
+
+    vagrant ssh
+    sudo cat /var/log/uwsgi/example.log
+    # or check the boss (emperor)
+    sudo cat /var/log/uwsgi/emperor.log
+
+Let me know in an issue if this is something I need to fix.
 
 ### OMG, you also put the private key on Github?
 
