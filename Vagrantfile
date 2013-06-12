@@ -16,6 +16,9 @@ Vagrant.configure("2") do |config|
       # Configure the minion
       salt.minion_config = "salt/minion.conf"
 
+      # Verbosity
+      salt.verbose = false
+      
       # Pre-distribute these keys on our local installation
       salt.minion_key = "salt/keys/vagrant.django-salted.org.pem"
       salt.minion_pub = "salt/keys/vagrant.django-salted.org.pub"

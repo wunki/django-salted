@@ -48,8 +48,6 @@ still need to be created. There is a fabric command to help you with that:
 After getting familiar with it, using Django Salted on your own project is
 simple done with changing a few settings.
 
-The default configuration runs with the following settings:
-
 - You will run and develop on the Django (1.5.1) `demo_project` inside the VM.
 - Ubuntu 12.04 will be used as OS.
 - Domain is: vagrant.django-salted.org
@@ -60,7 +58,19 @@ TODO: Write how to modify this repository for your own project.
 
 ## FAQ
 
-### **OMG, you also put the private key on Github?**
+### How do I get the get the latest state/version?
+
+The fastest way is to run `vagrant provision`. The downfall is that you don't
+see what's happening. So, you can either edit the [Vagrantfile] and change
+`salt.verbose` to `true`. Or SSH to the box (my favourite) by doing the
+following:
+
+    vagrant ssh
+    # On the box...
+    sudo salt-call state.highstate
+
+
+### OMG, you also put the private key on Github?
 
 Yes, this private key is used for the Vagrant example project. It's supposed
 to be there so you can spin up a box with a single command. Don't put your own
@@ -83,3 +93,4 @@ BSD Licensed. Use it however you want.
 [Fabric]: http://fabfile.org/
 [Fabtools]: https://github.com/ronnix/fabtools
 [requirements.txt]: https://github.com/wunki/django-salted/blob/master/requirements.txt
+[Vagrantfile]: https://github.com/wunki/django-salted/blob/master/Vagrantfile
