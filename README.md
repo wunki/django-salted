@@ -116,7 +116,11 @@ That would be great! Check out the [TODO.org] or the [Issues] on things to do.
 
 ## License
 
-BSD Licensed. Use it however you want.
+Django-salted was created by Petar Radosevic. You can reach out to me on
+twitter at [@wunki].
+
+It's BSD Licensed. Use it however you want, just don't try to sell it back to
+me.
 
 [SaltStack]: http://saltstack.com/community.html
 [Gibbon]: http://blog.gibbon.co
@@ -134,3 +138,4 @@ BSD Licensed. Use it however you want.
 [Vagrantfile]: https://github.com/wunki/django-salted/blob/master/Vagrantfile
 [TODO.org]: https://github.com/wunki/django-salted/blob/master/TODO.org
 [Issues]: https://github.com/wunki/django-salted/issues
+[@wunki]: https://twitter.com/wunki
