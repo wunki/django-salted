@@ -69,7 +69,6 @@ following:
     # On the box...
     sudo salt-call state.highstate
 
-
 ### OMG, you also put the private key on Github?
 
 Yes, this private key is used for the Vagrant example project. It's supposed
@@ -83,7 +82,7 @@ BSD Licensed. Use it however you want.
 [SaltStack]: http://saltstack.com/community.html
 [Gibbon]: http://blog.gibbon.co
 [PostgreSQL]: http://www.postgresql.org/
-[Salting your Django Stack]: http://blog.gibbon.co
+[Salting your Django Stack]: http://blog.gibbon.co/posts/2013-06-12-salting-your-django-stack.html
 [Virtualbox]: https://www.virtualbox.org/
 [Vagrant]: http://www.vagrantup.com/
 [Salty Vagrant]: https://github.com/saltstack/salty-vagrant
