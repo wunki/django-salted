@@ -1,6 +1,3 @@
-include:
-  - ssh
-
 openssh-server:
   pkg:
     - installed

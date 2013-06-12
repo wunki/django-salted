@@ -4,10 +4,10 @@ base:
     - ssh
   'vagrant.django-salted.org':
     - example-project.requirements
+    - example-project.nginx
     - example-project.ssh
     - example-project.postgresql
-    - example-project.local
-    - example-project.rabbitmq
+    - example-project.share
     - example-project.venv
     - example-project.uwsgi
-    - example-project.nginx
+
