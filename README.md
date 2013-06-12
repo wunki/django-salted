@@ -8,12 +8,23 @@ of the great things which are included:
   share.
 - Server running on uWSGI and Nginx. uWSGI reloads your python code
   automagically.
-- Django requirements are installed with Wheel. No more compilation needed per
-  box and dependency on PyPi.
-- Great Fabric helper functions.
+- Django requirements are installed with Wheel. Faster installation because no
+  more need for compilation per box. Also removes the dependency on PyPi.
+- Some helpfull Fabric functions.
 
 The repository is accomponied with a blog post we put on [Gibbon]. Go read
 [Salting your Django Stack] if you want to know how this came to be.
+
+## Requirements
+
+Django salted requires the following software to be installed on your machine:
+
+- [Virtualbox]
+- [Vagrant]
+- [Salty Vagrant]
+
+All of the above are open-source and free to use.
+
 
 ## Getting started (quick)
 
@@ -29,6 +40,17 @@ The default configuration runs with the following settings:
 - Ubuntu 12.04 will be used as OS.
 - Domain is: vagrant.django-salted.org
 
+Make sure you have all the requirements installed. If so, you only need to run
+a single command in the root directory to get the example project running:
+
+    vagrant up
+
+After running this command, you should see the Django example website on:
+[http://localhost:8080/](http://localhost:8080)
+
 [SaltStack]: http://saltstack.com/community.html
 [Gibbon]: http://blog.gibbon.co
 [Salting your Django Stack]: http://blog.gibbon.co
+[Virtualbox]: https://www.virtualbox.org/
+[Vagrant]: http://www.vagrantup.com/
+[Salty Vagrant]: https://github.com/saltstack/salty-vagrant
