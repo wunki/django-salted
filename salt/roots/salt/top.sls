@@ -9,6 +9,6 @@ base:
     - example-project.venv
     - example-project.pip
     - example-project.wheel
-    - example-project.postgresql
     - example-project.uwsgi
+    - example-project.postgresql
 

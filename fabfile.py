@@ -49,7 +49,7 @@ def migrate():
 def wheel():
     """ Create new wheel requirements file """
     # Get all the requirements
-    print colors.green("Downloading and compiling all the requirements.\nThis could take several minutes...")
+    print colors.green("Downloading and compiling requirements. This could take several minutes...")
     sudo('{pip} wheel --wheel-dir={wheel} -r {example}/requirements.txt'.format(pip=VENV_PATH + "/bin/pip",
                                                                                 wheel=WHEEL_PATH + PROJECT_NAME,
                                                                                 example=PROJECT_PATH),
