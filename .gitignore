@@ -1,4 +1,2 @@
-.vagrant/
-wheel/
-env/
-/.ropeproject/config.py
+/.vagrant/
+/.ropeproject/

@@ -12,8 +12,8 @@ PROJECT_NAME = "example"
 PROJECT_PATH = "/vagrant/demo_project"
 
 MANAGE_BIN = "/vagrant/demo_project/manage.py"
-VENV_PATH = "/vagrant/env"
-WHEEL_PATH = "/vagrant/wheel"
+VENV_PATH = "/home/vagrant/env"
+WHEEL_PATH = "/home/vagrant/wheel"
 WHEEL_NAME = "wheel-requirements.tar.gz"
 
 def _md5_for_file(filename, block_size=2**20):
