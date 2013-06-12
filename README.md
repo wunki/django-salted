@@ -4,13 +4,13 @@ This is a complete [SaltStack] configuration for a Django centric stack. It
 enables you setup a solid Django development environment with a single
 command. Some of the great things which are included:
 
-- **Local development**, but the code is run within Ubuntu with the help of a
+- *Local development*, but the code is run within Ubuntu with the help of a
   share.
-- Server running on **[uWSGI]** and **[Nginx]**. uWSGI **reloads** your python code
+- Server running on *[uWSGI]* and *[Nginx]*. uWSGI *reloads* your python code
   automagically.
-- Django requirements are installed with **[Wheel]**. Faster installation because
+- Django requirements are installed with *[Wheel]*. Faster installation because
   no more need for compilation per box. Also removes the dependency on PyPi.
-- Some helpfull **[Fabric]** functions.
+- Some helpfull *[Fabric]* functions.
 
 The repository is accomponied with a blog post we put on [Gibbon]. Go read
 [Salting your Django Stack] if you want to know how this came to be.
@@ -50,6 +50,18 @@ The default configuration runs with the following settings:
 ## Modify for your own project
 
 TODO: Write how to modify this repository for your own project.
+
+## FAQ
+
+### **OMG, you also put the private key on Github?**
+
+Yes, this private key is used for the Vagrant example project. It's supposed
+to be there so you can spin up a box with a single command. Don't put your own
+private keys there.
+
+## License
+
+BSD Licensed. Use it however you want.
 
 [SaltStack]: http://saltstack.com/community.html
 [Gibbon]: http://blog.gibbon.co
