@@ -16,7 +16,7 @@ command. Some of the great things which are included:
   designer how to get the project running.
 - Django requirements are installed with *[Wheel]*. Faster installation because
   no more need for compilation per box. Also removes the dependency on PyPi.
-  - Some helpfull *[Fabric]* functions.
+- Some helpfull *[Fabric]* functions, e.g., running `syncdb` on Vagrant.
 
 **Table of Contents**
 
