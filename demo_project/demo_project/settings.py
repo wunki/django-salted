@@ -131,50 +131,74 @@ LOG_FORMAT = "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s"
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'standard': {
-            'format': LOG_FORMAT,
-            'datefmt': "%d/%b/%Y %H:%M:%S"
-        },
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
     },
     'handlers': {
-        'null': {
-            'level': 'DEBUG',
-            'class': 'django.utils.log.NullHandler',
-        },
-        'logfile': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': "/var/log/demo_project/error.log",
-            'maxBytes': 50000,
-            'backupCount': 2,
-            'formatter': 'standard',
-        },
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'standard'
-        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
     },
     'loggers': {
-        '': {
-            'handlers': ['logfile'],
-            'level': 'WARN',
-        },
-        'django': {
-            'handlers': ['console'],
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
             'propagate': True,
-            'level': 'WARN',
-        },
-        'django.db.backends': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'frames': {
-            'handlers': ['console', 'logfile'],
-            'level': 'DEBUG',
         },
     }
 }
+# TODO: upgrade to use this logging, it was useful for debugging
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': True,
+#     'formatters': {
+#         'standard': {
+#             'format': LOG_FORMAT,
+#             'datefmt': "%d/%b/%Y %H:%M:%S"
+#         },
+#     },
+#     'handlers': {
+#         'null': {
+#             'level': 'DEBUG',
+#             'class': 'django.utils.log.NullHandler',
+#         },
+#         'logfile': {
+#             'level': 'DEBUG',
+#             'class': 'logging.handlers.RotatingFileHandler',
+#             'filename': "/var/log/demo_project/error.log",
+#             'maxBytes': 50000,
+#             'backupCount': 2,
+#             'formatter': 'standard',
+#         },
+#         'console': {
+#             'level': 'INFO',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'standard'
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'handlers': ['logfile'],
+#             'level': 'WARN',
+#         },
+#         'django': {
+#             'handlers': ['console'],
+#             'propagate': True,
+#             'level': 'WARN',
+#         },
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#             'propagate': False,
+#         },
+#         'frames': {
+#             'handlers': ['console', 'logfile'],
+#             'level': 'DEBUG',
+#         },
+#     }
+# }
