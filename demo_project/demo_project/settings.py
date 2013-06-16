@@ -127,8 +127,6 @@ INSTALLED_APPS = (
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 
-LOG_FORMAT = "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s"
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -153,6 +151,7 @@ LOGGING = {
     }
 }
 # TODO: upgrade to use this logging, it was useful for debugging
+# LOG_FORMAT = "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s"
 # LOGGING = {
 #     'version': 1,
 #     'disable_existing_loggers': True,
