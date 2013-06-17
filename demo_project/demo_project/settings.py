@@ -60,7 +60,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'demo_project.demo'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -125,6 +126,7 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -148,3 +150,54 @@ LOGGING = {
         },
     }
 }
+# TODO: upgrade to use this logging, it was useful for debugging
+# LOG_FORMAT = "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s"
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': True,
+#     'formatters': {
+#         'standard': {
+#             'format': LOG_FORMAT,
+#             'datefmt': "%d/%b/%Y %H:%M:%S"
+#         },
+#     },
+#     'handlers': {
+#         'null': {
+#             'level': 'DEBUG',
+#             'class': 'django.utils.log.NullHandler',
+#         },
+#         'logfile': {
+#             'level': 'DEBUG',
+#             'class': 'logging.handlers.RotatingFileHandler',
+#             'filename': "/var/log/demo_project/error.log",
+#             'maxBytes': 50000,
+#             'backupCount': 2,
+#             'formatter': 'standard',
+#         },
+#         'console': {
+#             'level': 'INFO',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'standard'
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'handlers': ['logfile'],
+#             'level': 'WARN',
+#         },
+#         'django': {
+#             'handlers': ['console'],
+#             'propagate': True,
+#             'level': 'WARN',
+#         },
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#             'propagate': False,
+#         },
+#         'frames': {
+#             'handlers': ['console', 'logfile'],
+#             'level': 'DEBUG',
+#         },
+#     }
+# }
