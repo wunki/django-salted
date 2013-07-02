@@ -14,8 +14,6 @@ command. Some of the great things which are included:
   automagically.
 - *[PostgreSQL]* is installed and setup for you. No more explaining to your
   designer how to get the project running.
-- Django requirements are installed with *[Wheel]*. Faster installation because
-  no more need for compilation per box. Also removes the dependency on PyPi.
 - Some helpfull *[Fabric]* functions, e.g., running `syncdb` on Vagrant.
 
 **Table of Contents**
@@ -139,7 +137,6 @@ me.
 [Salty Vagrant]: https://github.com/saltstack/salty-vagrant
 [uWSGI]: http://uwsgi-docs.readthedocs.org/
 [Nginx]: http://nginx.org/
-[Wheel]: http://wheel.readthedocs.org/
 [Fabric]: http://fabfile.org/
 [Fabtools]: https://github.com/ronnix/fabtools
 [requirements.txt]: https://github.com/wunki/django-salted/blob/master/requirements.txt
