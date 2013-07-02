@@ -46,6 +46,11 @@ def migrate():
     manage_py("migrate")
 
 @task
+def collectstatic():
+    """ Run collectstatic command. """
+    manage_py("collectstatic --noinput")
+
+@task
 def wheel():
     """ Create new wheel requirements file """
     # Get all the requirements

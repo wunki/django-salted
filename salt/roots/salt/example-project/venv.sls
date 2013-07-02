@@ -7,6 +7,7 @@ include:
     - no_site_packages: True
     - distribute: True
     - runas: {{ pillar['django']['user'] }}
+    - requirements: {{ pillar['django']['path'] }}/requirements.txt  
     - require:
       - pkg: python-virtualenv
       - pkg: python-dev

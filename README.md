@@ -65,7 +65,7 @@ still need to be created. There is a fabric command to help you with that:
 
 You will also need to collect the static files to use the demo project. This can be done with fabric also:
 
-    fab vagrant manage_py:collectstatic
+    fab vagrant collectstatic
 
 The demo_project is a very simple project with the Djagno Admin [http://127.0.0.1:8080/admin](http://127.0.0.1:8080/admin)
 
