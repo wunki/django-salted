@@ -7,7 +7,6 @@ base:
     - example-project.nginx
     - example-project.share
     - example-project.venv
-    - example-project.pip
     - example-project.uwsgi
     - example-project.postgresql
 
