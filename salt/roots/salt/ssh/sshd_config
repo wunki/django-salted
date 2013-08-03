@@ -115,7 +115,7 @@ PasswordAuthentication no
 #Banner none
 
 # override default of no subsystems
-Subsystem	sftp	/usr/libexec/sftp-server
+Subsystem	sftp	/usr/lib/openssh/sftp-server
 
 # Disable HPN tuning improvements.
 #HPNDisabled no
