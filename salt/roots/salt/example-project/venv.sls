@@ -4,10 +4,11 @@ include:
 # Create the Python Virtual environment
 {{ pillar['django']['virtualenv'] }}:
   virtualenv.managed:
-    - no_site_packages: True
+    - system_site_packages: False
     - distribute: True
     - runas: {{ pillar['django']['user'] }}
     - requirements: {{ pillar['django']['path'] }}/requirements.txt  
+    - no_chown: True
     - require:
       - pkg: python-virtualenv
       - pkg: python-dev
