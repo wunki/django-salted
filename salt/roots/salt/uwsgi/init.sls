@@ -12,6 +12,15 @@ uwsgi:
       - pkg: python-dev
       - pkg: python-pip
 
+/etc/uwsgi/apps-available:
+  file.directory:
+    - user: www-data
+    - group: www-data
+    - makedirs: true
+    - require:
+      - pip: uwsgi
+      - pkg: nginx
+
 /etc/uwsgi/apps-enabled:
   file.directory:
     - user: www-data
